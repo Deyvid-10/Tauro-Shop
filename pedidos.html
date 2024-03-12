@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+    <title>Tauro Shop - Pedidos pendientes</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="icon" href="./assets/img/tauro.ico">
+</head>
+<body class="fondo-carrito" onload="listar_pedido(), cargar_perfil(), expiracion_sesion(), numero_cantidad_carrito()">
+
+    <div class="contenedor-contactos">
+        <div class="elemento-contacto">
+            <svg class="iconos-contactos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <p class="texto-contacto">tauroshop@company.com</p>
+            <svg class="iconos-contactos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <p class="texto-contacto">809-444-9595</p>
+        </div>
+
+        <div>
+            <a href="https://www.instagram.com/?hl=en" target="_blank"><svg id="ig" class="redes-contactos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://es-la.facebook.com/" target="_blank"><svg id="fb" class="redes-contactos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>   
+            <a href="https://www.youtube.com/" target="_blank"><svg id="yt" class="redes-contactos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+        </div>
+    </div>
+
+    <header>
+        <a href="index.html">
+            <div class="contenedor-logo">
+                <img class="imagen-logo" src="assets/img/tauro.png" alt="logo">
+                <h1 class="titulo-logo">Tauro</h1>
+            </div>
+        </a>
+
+        <div class="contenedor-botones-cabecera">
+            <a href="index.html"><h2 class="botones-cabecera">Inicio</h2></a>
+            <a href="productos.html"><h2 class="botones-cabecera">Productos</h2></a>
+            <a href="sobre_nosotros.html"><h2 class="botones-cabecera">Sobre nosotros</h2></a>
+            <a href="contactos.html"><h2 class="botones-cabecera">Contactos</h2></a>
+        </div>
+
+        <div class="contenedor-cabecera">
+            <svg onclick="buscador()" id="icono-buscar" class="icono-cabecera" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <div class="carrito">
+                <div id="contenedor-numero-carrito">
+                    <h3 id="numero-carrito"></h3>
+                </div>
+                <svg onclick="ir_a_carrito()" class="icono-cabecera" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+        </div>       
+        
+        <div class="contenedor-control-perfil">
+            <div class="contenedor-botones-ingreso-registro" id="contenedor-botones-ingreso-registro">           
+                <a href="registro.html"><button id="boton-registro">Registrate</button></a>
+                <a href="ingreso.html"><button id="boton-ingresa">Ingresa</button></a>
+            </div>
+
+            <div class="cuenta-perfil" id="cuenta-perfil" onmouseover="mostrar_opciones_cuenta_perfil('mostrar')" onmouseleave="mostrar_opciones_cuenta_perfil('no_mostrar')">           
+                <img src="assets/img/hombre.png" alt="foto-perfil">
+            </div>
+        </div>
+
+        <svg  id="menu" class="icono-cabecera" onclick="mostrar_menu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </header>
+
+    <div id="espacio-menu-botones">
+        <div id="menu-botones">            
+            <div>
+                <a href="index.html"><h2 class="botones-cabecera">Inicio</h2></a>
+                <a href="productos.html"><h2 class="botones-cabecera">Productos</h2></a>
+                <a href="sobre_nosotros.html"><h2 class="botones-cabecera">Sobre nosotros</h2></a>
+                <a href="contactos.html"><h2 class="botones-cabecera">Contactos</h2></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="opciones-cuenta-perfil" id="opciones-cuenta-perfil" onmouseover="mostrar_opciones_cuenta_perfil('mostrar')" onmouseleave="mostrar_opciones_cuenta_perfil('no_mostrar')">
+        <h2>Mi cuenta (<span id="nombre-usuario"></span>)</h2>
+        <a href="editar_perfil.html">Editar cuenta</a>
+        <br>
+        <a onclick="ir_a_carrito()" href="">Carrito</a>
+        <br>
+        <a href="pedidos.html">Pedidos</a>
+        <br>
+        <a onclick="cerrar_sesion()" href="">Cerrar sesion</a>
+    </div>
+
+    <div id="contenedor-botones-cabecera-abajo">
+        <div id="espacio-botones-cabecera-abajo">
+            <a href="index.html"><h2 class="botones-cabecera">Inicio</h2></a>
+            <a href="productos.html"><h2 class="botones-cabecera">Productos</h2></a>
+            <a href="sobre_nosotros.html"><h2 class="botones-cabecera">Sobre nosotros</h2></a>
+            <a href="contactos.html"><h2 class="botones-cabecera">Contactos</h2></a>
+        </div>
+    </div>
+
+    <div class="contenedor-buscador" id="contenedor-buscador">
+        <form class="buscador" id="buscador">
+            <input class="input-buscar" id="input-buscar" type="text" placeholder="buscar...">
+            <button class="boton-buscar" onclick="boton_buscar()" type="button">Buscar</button>
+        </form>
+    </div>
+    
+    <div class="espacio-pago-seguir">
+
+        <a href="productos.html">
+            <div class="contenedor-seguir-comprando">
+                <h2>Seguir comprando</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="espacio-pedidos">
+        <div class="contenedor-pedidos" id="contenedor-pedidos">
+            <h2 id="titulo-pedidos">Pedidos pendientes</h2>
+            <div id="espacio-pedidos"></div>
+        </div>
+    </div>
+
+    <div class="contenedor-pie-pagina">
+
+        <div>
+            <a href="index.html">
+                <div class="contenedor-logo-pie-pagina">
+                    <img class="imagen-logo" src="assets/img/tauro.png" alt="logo">
+                    <h1 class="titulo-logo">Tauro Shop</h1>
+                </div>
+            </a>
+
+            <div class="contenedor-pie-pagina-contactos">
+                <svg class="iconos-contactos-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <p class="texto-contacto-pie-pagina">tauroshop@company.com</p>
+            </div>
+            <div class="contenedor-pie-pagina-contactos">
+                <svg class="iconos-contactos-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <p class="texto-contacto-pie-pagina">809-444-9595</p>
+            </div>
+            <div class="contenedor-pie-pagina-contactos">
+                <svg class="iconos-contactos-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <P class="texto-contacto-pie-pagina">Av 27 de Febrero 333, Santo Domingo</P>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="titulo-pie-pagina">Productos</h3>
+            <h2 class="sub-titulo-pie-pagina" onclick="categorias('elegante')">Elegante</h2>
+            <h2 class="sub-titulo-pie-pagina" onclick="categorias('deportiva')">Deportiva</a></h2>
+            <h2 class="sub-titulo-pie-pagina" onclick="categorias('fiesta')">Fiesta</a></h2>
+            <h2 class="sub-titulo-pie-pagina" onclick="categorias('sexy')">Sexy</a></h2>
+        </div>
+        
+        <div>
+            <h3 class="titulo-pie-pagina">Informacion adicional</h3>
+            <h2 class="sub-titulo-pie-pagina"><a href="index.html">Inicio</a></h2>
+            <h2 class="sub-titulo-pie-pagina"><a href="productos.html">Productos</a></h2>
+            <h2 class="sub-titulo-pie-pagina"><a href="sobre_nosotros.html">Sobre nosotros</a></h2>
+            <h2 class="sub-titulo-pie-pagina"><a href="contactos.html">Contactos</a></h2>
+        </div>
+    </div>
+
+    <div class="fondo-pie-pagina">
+        <div class="contenedor-pie-pagina-redes-sociales">
+            <a href="https://www.instagram.com/?hl=en" target="_blank"><svg id="ig" class="redes-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://es-la.facebook.com/" target="_blank"><svg id="fb" class="redes-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>   
+            <a href="https://www.youtube.com/" target="_blank"><svg id="yt" class="redes-pie-pagina" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+        </div>
+    </div>
+
+    <div class="contenedor-derechos">
+        <p class="texto-derechos">Copyright © 2021 Tauro Shop S.R.L. | Designed by Deyvid</p>
+    </div>
+</body>
+<script src="assets/js/index.js"></script>
+
+</html>
