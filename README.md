@@ -34,7 +34,7 @@ Si quieres ver mi trabajo de forma local en tu equipo, revisa mi documentación 
     4-En la carpeta donde se encuentra la API ejecutar el comando 'node index.js' para iniciar la API
 
 ### `npm init -y`
-### `node index.js`
+### `npm run dev`
 
 ## c) Abrir la aplicación
 
