@@ -17,7 +17,7 @@ Si quieres ver mi trabajo de forma local en tu equipo, revisa mi documentación 
         hostname: localhost
         username: root
         password: Contrasena20
-        schema or database: tauro_shop
+        schema or database: tauro-shop
     NOTA: es importante que la configuración sea igual porque la API tiene estos datos configurados para funcionar
 
     2-Colocar la base de datos (en este caso tauro_shop) por defecto (click derecho a la base de datos y set as default schema)
@@ -31,11 +31,15 @@ Si quieres ver mi trabajo de forma local en tu equipo, revisa mi documentación 
     1-Abre una terminal
     2-Utilizando el cmdlet 'cd' para ir a la carpeta donde se encuentra la API (ej: cd C:\Users\mi_usuario\Documents\Tauro-Shop\API) 
     3-En la carpeta donde se encuentra la API ejecutar el comando 'npm init -y' para instalar las dependencias desde el archivo 'package.json'
-    4-En la carpeta donde se encuentra la API ejecutar el comando 'node index.js' para iniciar la API
+    4-En la carpeta donde se encuentra la API ejecutar el comando 'npm run dev' para iniciar la API
 
 ### `npm init -y`
 ### `npm run dev`
 
 ## c) Abrir la aplicación
 
-Ahora sí!, para ver lo que puede hacer mi CRUD Registro escolar simplemente abre el archivo index.html y podrás probar mi aplicación web.
+Ahora sí!
+
+    1-Busca el archivo 'index.js' (lo podras encontrar navegando por las carpetas assets/js/index.js)
+    2-Abre el archivo, quitale el comentario a la linea 1 y comenta la linea 2 (puedes elegir que el proyecto consuma la api local que preparaste anteriormente o la api que ya tengo en la nube)
+    3-Por ultimo busca el archivo 'index.html' (que encontraras regresando entre carpetas) y simplemente dale boble click
