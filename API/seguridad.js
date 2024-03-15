@@ -4,28 +4,10 @@ const { log } = require('console')
 const ciclos = 10
 const salt = bcrypt.genSaltSync(ciclos)
 
-// ENCRIPTADO
-const cryto = require('crypto')
-const algoritmo = 'aes-128-gcm'
-const pass = 'pass 16 caracter'
-const iv = cryto.randomBytes(16)
-
 // TOKEN
 const jwt = require('jsonwebtoken')
 const claveSecreta = 'esta_es_una_clave_para_token'
 
-// FUNCION PARA EL ENCRIPTADO
-function encriptado(email)
-{
-    // crear un objeto de cifrado
-    const cifrado = cryto.createCipheriv(algoritmo, pass, iv)
-
-    // cifrar el texto plano
-    let encriptado = cifrado.update(email, 'utf8', 'hex')
-    encriptado += cifrado.final('hex')
-
-    return encriptado
-}
 
 // FUNCION PARA EL HASING
 function hash(pass)
@@ -90,4 +72,4 @@ function token_expirado(token)
     return expiracion_token
 }
 
-module.exports = { crearToken, validarToken, token_expirado, hash, encriptado }
+module.exports = { crearToken, validarToken, token_expirado, hash}
