@@ -30,10 +30,10 @@ Si quieres ver mi trabajo de forma local en tu equipo, revisa mi documentación 
 
     1-Abre una terminal
     2-Utilizando el cmdlet 'cd' para ir a la carpeta donde se encuentra la API (ej: cd C:\Users\mi_usuario\Documents\Tauro-Shop\API) 
-    3-En la carpeta donde se encuentra la API ejecutar el comando 'npm init -y' para instalar las dependencias desde el archivo 'package.json'
+    3-En la carpeta donde se encuentra la API ejecutar el comando 'npm install' para instalar las dependencias desde el archivo 'package.json'
     4-En la carpeta donde se encuentra la API ejecutar el comando 'npm run dev' para iniciar la API
 
-### `npm init -y`
+### `npm install`
 ### `npm run dev`
 
 ## c) Abrir la aplicación
